@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi perfil | Sport+Fitness</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/alertas.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark bg-dark">
+
+<div class="container">
+
+<button class="btn text-white me-2" id="menu-btn">
+
+<i class="fas fa-bars fa-2x"></i>
+
+</button>
+
+<a class="navbar-brand fw-bold fs-2" href="index.html">
+
+Sport<span class="text-success">+</span>Fitness
+
+</a>
+
+<div class="d-flex align-items-center gap-3">
+
+<div class="nav-usuario dropdown"></div>
+
+<a href="carrito.html" class="text-white icono-carrito">
+<i class="fa-solid fa-cart-shopping fa-2x"></i>
+<span class="badge bg-success rounded-circle position-absolute top-0 start-100 translate-middle badge-carrito">0</span>
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<div id="menu-overlay"></div>
+
+<div class="menu-lateral" id="menu-lateral">
+
+    <a href="index.html"><i class="fa-solid fa-house text-success"></i>Inicio</a>
+
+    <a href="hombre.html"><i class="fa-solid fa-shirt text-success"></i>Hombre</a>
+
+    <a href="mujer.html"><i class="fa-solid fa-person-dress text-danger"></i>Mujer</a>
+
+    <a href="suplementos.html"><i class="fa-solid fa-prescription-bottle text-primary"></i>Suplementos</a>
+
+    <a href="contacto.html"><i class="fa-regular fa-envelope text-primary"></i>Contacto</a>
+
+    <a href="creditos.html"><i class="fa-solid fa-users text-success"></i>Créditos</a>
+
+    <hr>
+
+    <a href="carrito.html"><i class="fa-solid fa-cart-shopping text-success"></i>Carrito</a>
+
+    <div id="menu-lateral-cuenta"></div>
+
+</div>
+
+<!-- FORMULARIO DE PERFIL -->
+
+<section class="container mt-5 mb-5">
+
+    <div class="card shadow auth-card">
+
+        <div class="card-body p-4">
+
+            <h2 class="text-center fw-bold mb-4">
+                <i class="fa-solid fa-user-pen text-success"></i>
+                Mi perfil
+            </h2>
+
+            <div class="alert alert-info d-none" id="aviso-admin-fijo">
+                Esta cuenta de administrador está definida directamente en el código
+                (<code>js/script.js</code>) y no se puede editar desde aquí.
+            </div>
+
+
+            <form id="form-perfil">
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="perfil-nombre" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="perfil-correo" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="perfil-telefono"
+                        placeholder="Ej: 3001234567" pattern="[0-9]{7,15}" required>
+                    <div class="form-text">Solo números, sin espacios ni guiones.</div>
+                </div>
+
+                <hr>
+
+                <p class="text-muted small mb-3">
+                    Para guardar cualquier cambio, confirma tu contraseña actual.
+                    Solo escribe una contraseña nueva si quieres cambiarla.
+                </p>
+
+                <div class="mb-3">
+                    <label class="form-label">Contraseña actual</label>
+                    <input type="password" class="form-control" id="perfil-password-actual" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nueva contraseña <span class="text-muted">(opcional)</span></label>
+                    <input type="password" class="form-control" id="perfil-password-nueva" minlength="6">
+                    <div class="form-text">Déjalo en blanco para conservar tu contraseña actual.</div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Confirmar nueva contraseña</label>
+                    <input type="password" class="form-control" id="perfil-password-nueva2" minlength="6">
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">
+                    Guardar cambios
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white mt-5">
+
+<div class="container py-4 text-center">
+
+<h4>Sport+Fitness</h4>
+
+<p>© 2026 Todos los derechos reservados.</p>
+
+<div>
+
+<a href="#" data-red="facebook" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+
+<a href="#" data-red="instagram" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+
+<a href="#" data-red="whatsapp" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-whatsapp fa-2x"></i></a>
+
+<a href="#" data-red="twitter" target="_blank" rel="noopener" class="text-white"><i class="fab fa-x-twitter fa-2x"></i></a>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
+<script src="js/alertas.js"></script>
+<script src="js/api.js?v=2"></script>
+<script src="js/script.js"></script>
+
+<script src="js/perfil.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>SportFitness — Mockups tienda virtual de ropa deportiva y suplementos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#121210;
+    --panel:#1B1B16;
+    --panel2:#232319;
+    --line:#33332A;
+    --line-soft:#26261D;
+    --ink:#F2F1E7;
+    --ink-dim:#9A9A88;
+    --volt:#D6FF3F;
+    --volt-ink:#1D2400;
+    --coral:#FF5A3C;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:2rem 1.5rem 4rem;
+  }
+  .wrap{max-width:1180px;margin:0 auto;}
+  .intro{margin-bottom:2.5rem;}
+  .intro h1{
+    font-family:'Archivo Black',sans-serif;
+    font-size:26px;
+    letter-spacing:0.5px;
+    margin:0 0 6px;
+    text-transform:uppercase;
+  }
+  .intro p{color:var(--ink-dim);font-size:14px;margin:0;max-width:560px;line-height:1.6;}
+  .screens{display:flex;flex-direction:column;gap:2.75rem;}
+  .frame{
+    background:var(--panel);
+    border:0.5px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .frame-bar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 14px;
+    background:var(--panel2);
+    border-bottom:0.5px solid var(--line);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--line);}
+  .frame-label{
+    margin-left:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--ink-dim);
+    letter-spacing:0.4px;
+  }
+  .screen-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--volt);
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    display:block;
+  }
+  .screen-body{padding:0;}
+
+  /* NAV */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;border-bottom:0.5px solid var(--line);
+  }
+  .logo{
+    font-family:'Archivo Black',sans-serif;
+    font-size:16px;letter-spacing:0.5px;
+    display:flex;align-items:center;gap:8px;
+    white-space:nowrap;
+  }
+  .logo .bar{width:14px;height:14px;background:var(--volt);border-radius:3px;flex-shrink:0;}
+  .nav-links{display:flex;gap:22px;font-size:13px;color:var(--ink-dim);}
+  .nav-links span.active{color:var(--ink);font-weight:600;}
+  .nav-actions{display:flex;align-items:center;gap:14px;color:var(--ink-dim);font-size:16px;}
+  .cart-pill{
+    display:flex;align-items:center;gap:6px;
+    background:var(--volt);color:var(--volt-ink);
+    padding:6px 12px;border-radius:20px;font-size:12px;font-weight:700;
+  }
+
+  /* HERO */
+  .hero{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:0;
+    background:var(--panel);
+  }
+  .hero-copy{padding:44px 32px;display:flex;flex-direction:column;justify-content:center;gap:16px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--coral);
+    letter-spacing:1.5px;text-transform:uppercase;
+  }
+  .hero-copy h2{
+    font-family:'Archivo Black',sans-serif;
+    font-size:38px;line-height:1.02;margin:0;text-transform:uppercase;
+  }
+  .hero-copy h2 em{color:var(--volt);font-style:normal;}
+  .hero-copy p{color:var(--ink-dim);font-size:14px;line-height:1.6;margin:0;max-width:380px;}
+  .hero-actions{display:flex;gap:10px;margin-top:6px;}
+  .btn{
+    border-radius:8px;padding:11px 18px;font-size:13px;font-weight:600;
+    border:0.5px solid var(--line);background:transparent;color:var(--ink);
+    cursor:default;display:inline-flex;align-items:center;gap:6px;
+  }
+  .btn-primary{background:var(--volt);color:var(--volt-ink);border:none;}
+  .hero-stats{display:flex;gap:26px;margin-top:18px;}
+  .hero-stat b{font-family:'JetBrains Mono',monospace;font-size:20px;display:block;}
+  .hero-stat span{font-size:11px;color:var(--ink-dim);}
+  .hero-visual{
+    position:relative;overflow:hidden;
+    border-left:0.5px solid var(--line);
+    min-height:280px;
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;}
+  .hero-visual::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(18,18,16,0) 40%, rgba(18,18,16,0.55) 100%);
+  }
+
+  /* categories */
+  .cats{display:flex;gap:12px;padding:24px 28px;background:var(--panel);border-top:0.5px solid var(--line);flex-wrap:wrap;}
+  .cat-chip{
+    border:0.5px solid var(--line);border-radius:20px;padding:8px 16px;
+    font-size:12px;color:var(--ink-dim);display:flex;align-items:center;gap:6px;
+  }
+  .cat-chip.on{background:var(--panel2);color:var(--ink);border-color:var(--line-soft);}
+
+  /* product grid */
+  .section-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    padding:26px 28px 4px;
+  }
+  .section-head h3{font-size:16px;margin:0;font-weight:500;}
+  .section-head span{font-size:12px;color:var(--ink-dim);}
+  .grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    padding:16px 28px 30px;
+  }
+  .card{
+    background:var(--panel2);border:0.5px solid var(--line);border-radius:12px;
+    padding:14px;display:flex;flex-direction:column;gap:8px;
+  }
+  .card-thumb{
+    height:120px;border-radius:8px;background:var(--bg);
+    overflow:hidden;position:relative;
+  }
+  .card-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-tag{
+    position:absolute;top:8px;left:8px;background:var(--coral);color:#2A0D06;
+    font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;font-weight:700;
+    z-index:2;
+  }
+  .card h4{margin:0;font-size:13px;font-weight:500;}
+  .card .meta{font-size:11px;color:var(--ink-dim);}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px;}
+  .price{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;}
+  .add-btn{
+    width:28px;height:28px;border-radius:50%;background:var(--volt);color:var(--volt-ink);
+    display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;
+  }
+
+  /* filters layout for catalog screen */
+  .catalog-body{display:grid;grid-template-columns:200px 1fr;gap:0;}
+  .filters{padding:24px 20px;border-right:0.5px solid var(--line);display:flex;flex-direction:column;gap:20px;}
+  .filter-group span.title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-dim);display:block;margin-bottom:10px;}
+  .filter-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-dim);margin-bottom:8px;}
+  .checkbox{width:14px;height:14px;border:1.5px solid var(--line);border-radius:4px;flex-shrink:0;}
+  .checkbox.on{background:var(--volt);border-color:var(--volt);}
+  .size-row{display:flex;gap:6px;flex-wrap:wrap;}
+  .size-chip{
+    width:34px;height:28px;border:0.5px solid var(--line);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink-dim);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .size-chip.on{border-color:var(--volt);color:var(--volt);}
+  .range-track{height:3px;background:var(--line);border-radius:3px;position:relative;margin-top:10px;}
+  .range-fill{position:absolute;left:15%;right:35%;top:0;bottom:0;background:var(--volt);border-radius:3px;}
+  .range-thumb{width:12px;height:12px;background:var(--volt);border-radius:50%;position:absolute;top:-4.5px;}
+  .catalog-grid{padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;padding:18px 20px 0;font-size:12px;color:var(--ink-dim);}
+  .sort{display:flex;align-items:center;gap:6px;border:0.5px solid var(--line);border-radius:8px;padding:6px 12px;}
+
+  /* product detail */
+  .pdp{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .pdp-gallery{padding:28px;border-right:0.5px solid var(--line);}
+  .pdp-main{
+    border-radius:12px;height:300px;overflow:hidden;margin-bottom:10px;
+  }
+  .pdp-main img{width:100%;height:100%;object-fit:cover;display:block;}
+  .pdp-thumbs{display:flex;gap:8px;}
+  .pdp-thumbs .t{width:56px;height:56px;border-radius:8px;overflow:hidden;border:0.5px solid var(--line);}
+  .pdp-thumbs .t img{width:100%;height:100%;object-fit:cover;display:block;}
+  .pdp-thumbs .t.on{border-color:var(--volt);}
+  .pdp-info{padding:32px;display:flex;flex-direction:column;gap:14px;}
+  .stars{color:var(--volt);font-size:13px;letter-spacing:2px;}
+  .pdp-info h2{font-size:22px;margin:0;font-family:'Archivo Black',sans-serif;text-transform:uppercase;}
+  .pdp-price{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;}
+  .pdp-price .old{color:var(--ink-dim);text-decoration:line-through;font-size:15px;font-weight:500;margin-left:8px;}
+  .swatch-row{display:flex;gap:8px;}
+  .swatch{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);}
+  .swatch.on{border-color:var(--volt);}
+  .qty-row{display:flex;align-items:center;gap:14px;}
+  .qty-box{display:flex;align-items:center;border:0.5px solid var(--line);border-radius:8px;}
+  .qty-box span{padding:8px 14px;font-family:'JetBrains Mono',monospace;}
+  .specs{border-top:0.5px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px;}
+  .spec-row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-dim);}
+  .spec-row b{color:var(--ink);font-weight:500;}
+
+  /* cart */
+  .cart-body{display:grid;grid-template-columns:1.4fr 1fr;gap:0;}
+  .cart-items{padding:24px 28px;display:flex;flex-direction:column;gap:14px;border-right:0.5px solid var(--line);}
+  .cart-item{display:flex;gap:14px;align-items:center;padding-bottom:14px;border-bottom:0.5px solid var(--line-soft);}
+  .cart-thumb{width:56px;height:56px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+  .cart-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cart-item-info{flex:1;}
+  .cart-item-info h5{margin:0 0 4px;font-size:13px;font-weight:500;}
+  .cart-item-info span{font-size:11px;color:var(--ink-dim);}
+  .cart-item-qty{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:12px;}
+  .cart-summary{padding:28px;display:flex;flex-direction:column;gap:14px;}
+  .summary-row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-dim);}
+  .summary-row.total{color:var(--ink);font-weight:700;font-size:16px;border-top:0.5px solid var(--line);padding-top:12px;margin-top:4px;}
+  .promo{display:flex;gap:8px;}
+  .promo input{flex:1;}
+  input, select{
+    background:var(--panel2);border:0.5px solid var(--line);border-radius:8px;
+    color:var(--ink);padding:9px 12px;font-size:12px;font-family:'Inter',sans-serif;
+  }
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .grid, .catalog-grid{grid-template-columns:repeat(2,1fr);}
+    .catalog-body{grid-template-columns:1fr;}
+    .filters{border-right:none;border-bottom:0.5px solid var(--line);}
+    .pdp, .cart-body{grid-template-columns:1fr;}
+    .pdp-gallery, .cart-items{border-right:none;border-bottom:0.5px solid var(--line);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="intro">
+    <h1>SportFitness — tienda virtual de ropa deportiva y suplementos</h1>
+    <p>Mockup de las pantallas principales del programa, ya con imágenes de producto: inicio, catálogo de ropa con filtros, ficha de producto, carrito, catálogo de suplementos y ficha de producto de suplemento.</p>
+  </div>
+
+  <div class="screens">
+
+    <!-- SCREEN 1: HOME -->
+    <div class="frame">
+      <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="frame-label">sportfitness.tienda / inicio</span></div>
+      <div class="screen-body">
+        <div class="nav">
+          <div class="logo"><span class="bar"></span>SPORTFITNESS</div>
+          <div class="nav-links">
+            <span class="active">Inicio</span><span>Hombre</span><span>Mujer</span><span>Suplementos</span>
+          </div>
+          <div class="nav-actions">
+            <i class="ti ti-search"></i>
+            <i class="ti ti-user"></i>
+            <div class="cart-pill"><i class="ti ti-shopping-cart"></i> 3</div>
+          </div>
+        </div>
+
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">Envío en 24h · Todo Bogotá</span>
+            <h2>Rinde <br>al <em>máximo</em></h2>
+            <p>Ropa deportiva de hombre y mujer, y suplementos para acompañar cada entrenamiento. Diseño técnico, materiales de alto rendimiento.</p>
+            <div class="hero-actions">
+              <div class="btn btn-primary"><i class="ti ti-shirt-sport"></i> Ver colección</div>
+              <div class="btn"><i class="ti ti-bottle"></i> Suplementos</div>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>800+</b><span>Prendas</span></div>
+              <div class="hero-stat"><b>4.8</b><span>Calificación</span></div>
+              <div class="hero-stat"><b>24h</b><span>Entrega</span></div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="https://loremflickr.com/800/800/gym,fitness,workout?lock=1" alt="Persona entrenando con ropa deportiva" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf1/800/800'">
+          </div>
+        </div>
+
+        <div class="cats">
+          <div class="cat-chip on"><i class="ti ti-shirt-sport"></i> Ropa hombre</div>
+          <div class="cat-chip"><i class="ti ti-dress"></i> Ropa mujer</div>
+          <div class="cat-chip"><i class="ti ti-bottle"></i> Suplementos</div>
+        </div>
+
+        <div class="section-head"><h3>Más vendidos</h3><span>Ver todos →</span></div>
+        <div class="grid">
+          <div class="card">
+            <div class="card-thumb"><span class="card-tag">-20%</span><img src="https://loremflickr.com/400/400/tshirt,man,sport?lock=2" alt="Camiseta técnica hombre" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf2/400/400'"></div>
+            <h4>Camiseta técnica hombre</h4>
+            <span class="meta">Dry-fit · varios colores</span>
+            <div class="card-foot"><span class="price">$89.900</span><div class="add-btn">+</div></div>
+          </div>
+          <div class="card">
+            <div class="card-thumb"><img src="https://loremflickr.com/400/400/leggings,woman,fitness?lock=3" alt="Legging mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf3/400/400'"></div>
+            <h4>Legging mujer high waist</h4>
+            <span class="meta">Compresión · sin costuras</span>
+            <div class="card-foot"><span class="price">$119.900</span><div class="add-btn">+</div></div>
+          </div>
+          <div class="card">
+            <div class="card-thumb"><span class="card-tag">Nuevo</span><img src="https://loremflickr.com/400/400/protein,supplement?lock=4" alt="Proteína whey" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf4/400/400'"></div>
+            <h4>Proteína whey 2lb</h4>
+            <span class="meta">Chocolate · 30 porciones</span>
+            <div class="card-foot"><span class="price">$129.900</span><div class="add-btn">+</div></div>
+          </div>
+          <div class="card">
+            <div class="card-thumb"><img src="https://loremflickr.com/400/400/jacket,man,sport?lock=5" alt="Chaqueta cortavientos hombre" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf5/400/400'"></div>
+            <h4>Chaqueta cortavientos hombre</h4>
+            <span class="meta">Impermeable · liviana</span>
+            <div class="card-foot"><span class="price">$185.000</span><div class="add-btn">+</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: CATALOG WOMEN -->
+    <div class="frame">
+      <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="frame-label">sportfitness.tienda / catálogo</span></div>
+      <div class="screen-body">
+        <div class="nav">
+          <div class="logo"><span class="bar"></span>SPORTFITNESS</div>
+          <div class="nav-links">
+            <span>Inicio</span><span class="active">Mujer</span><span>Hombre</span><span>Suplementos</span>
+          </div>
+          <div class="nav-actions">
+            <i class="ti ti-search"></i><i class="ti ti-user"></i>
+            <div class="cart-pill"><i class="ti ti-shopping-cart"></i> 3</div>
+          </div>
+        </div>
+        <div class="toolbar">
+          <span>Catálogo / Ropa mujer · 64 resultados</span>
+          <div class="sort">Ordenar: relevancia <i class="ti ti-chevron-down"></i></div>
+        </div>
+        <div class="catalog-body">
+          <div class="filters">
+            <div class="filter-group">
+              <span class="title">Categoría</span>
+              <div class="filter-row"><span class="checkbox on"></span> Ropa mujer</div>
+              <div class="filter-row"><span class="checkbox"></span> Ropa hombre</div>
+              <div class="filter-row"><span class="checkbox"></span> Suplementos</div>
+            </div>
+            <div class="filter-group">
+              <span class="title">Talla</span>
+              <div class="size-row">
+                <div class="size-chip">XS</div><div class="size-chip on">S</div><div class="size-chip on">M</div>
+                <div class="size-chip">L</div><div class="size-chip">XL</div>
+              </div>
+            </div>
+            <div class="filter-group">
+              <span class="title">Precio</span>
+              <div class="range-track"><div class="range-fill"></div><div class="range-thumb" style="left:15%"></div><div class="range-thumb" style="left:65%"></div></div>
+            </div>
+            <div class="filter-group">
+              <span class="title">Marca</span>
+              <div class="filter-row"><span class="checkbox"></span> Nike</div>
+              <div class="filter-row"><span class="checkbox on"></span> Under Armour</div>
+              <div class="filter-row"><span class="checkbox"></span> Reebok</div>
+            </div>
+          </div>
+          <div class="catalog-grid">
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/sports,bra,woman?lock=6" alt="Top deportivo mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf6/400/400'"></div><h4>Top deportivo mujer</h4><span class="meta">Soporte medio · sin varilla</span><div class="card-foot"><span class="price">$69.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><span class="card-tag">-15%</span><img src="https://loremflickr.com/400/400/woman,fitness,outfit?lock=7" alt="Conjunto deportivo mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf7/400/400'"></div><h4>Conjunto deportivo mujer</h4><span class="meta">Top + legging</span><div class="card-foot"><span class="price">$179.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/shorts,woman,sport?lock=8" alt="Short deportivo mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf8/400/400'"></div><h4>Short deportivo mujer</h4><span class="meta">Doble capa · bolsillo</span><div class="card-foot"><span class="price">$79.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/tshirt,woman,running?lock=9" alt="Camiseta running mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf9/400/400'"></div><h4>Camiseta running mujer</h4><span class="meta">Transpirable · manga corta</span><div class="card-foot"><span class="price">$85.000</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/jacket,woman,sport?lock=10" alt="Chaqueta ligera mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf10/400/400'"></div><h4>Chaqueta ligera mujer</h4><span class="meta">Cortaviento · reflectiva</span><div class="card-foot"><span class="price">$159.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/leggings,woman,gym?lock=11" alt="Legging capri mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf11/400/400'"></div><h4>Legging capri mujer</h4><span class="meta">Cintura alta · bolsillo lateral</span><div class="card-foot"><span class="price">$99.900</span><div class="add-btn">+</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: PRODUCT DETAIL MEN -->
+    <div class="frame">
+      <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="frame-label">sportfitness.tienda / producto / camiseta-tecnica-hombre</span></div>
+      <div class="screen-body">
+        <div class="nav">
+          <div class="logo"><span class="bar"></span>SPORTFITNESS</div>
+          <div class="nav-links"><span>Inicio</span><span class="active">Hombre</span><span>Mujer</span><span>Suplementos</span></div>
+          <div class="nav-actions"><i class="ti ti-search"></i><i class="ti ti-user"></i><div class="cart-pill"><i class="ti ti-shopping-cart"></i> 3</div></div>
+        </div>
+        <div class="pdp">
+          <div class="pdp-gallery">
+            <div class="pdp-main"><img src="https://loremflickr.com/400/400/tshirt,man,sport?lock=12" alt="Camiseta técnica hombre" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf12/400/400'"></div>
+            <div class="pdp-thumbs">
+              <div class="t on"><img src="https://loremflickr.com/100/100/tshirt,man,sport?lock=13" alt="miniatura 1" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf13/100/100'"></div>
+              <div class="t"><img src="https://loremflickr.com/100/100/gym,clothing?lock=14" alt="miniatura 2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf14/100/100'"></div>
+              <div class="t"><img src="https://loremflickr.com/100/100/sportswear,fabric?lock=15" alt="miniatura 3" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf15/100/100'"></div>
+              <div class="t"><img src="https://loremflickr.com/100/100/sport,apparel?lock=16" alt="miniatura 4" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf16/100/100'"></div>
+            </div>
+          </div>
+          <div class="pdp-info">
+            <span class="eyebrow">Ropa hombre</span>
+            <h2>Camiseta técnica hombre</h2>
+            <div class="stars">★★★★★ <span style="color:var(--ink-dim);font-family:'Inter';font-size:12px;">(214 reseñas)</span></div>
+            <div class="pdp-price">$89.900 <span class="old">$112.000</span></div>
+            <p style="color:var(--ink-dim);font-size:13px;line-height:1.6;margin:0;">Camiseta técnica dry-fit de secado rápido, tela transpirable y costuras planas. Ideal para entrenamiento de alta intensidad.</p>
+            <div>
+              <span class="title" style="font-size:11px;text-transform:uppercase;color:var(--ink-dim);display:block;margin-bottom:8px;">Color</span>
+              <div class="swatch-row">
+                <div class="swatch on" style="background:#1D2400;"></div>
+                <div class="swatch" style="background:#9a9a88;"></div>
+                <div class="swatch" style="background:#3d3d33;"></div>
+              </div>
+            </div>
+            <div>
+              <span class="title" style="font-size:11px;text-transform:uppercase;color:var(--ink-dim);display:block;margin-bottom:8px;">Talla</span>
+              <div class="size-row">
+                <div class="size-chip">XS</div><div class="size-chip">S</div><div class="size-chip on">M</div>
+                <div class="size-chip">L</div><div class="size-chip">XL</div>
+              </div>
+            </div>
+            <div class="qty-row">
+              <div class="qty-box"><span>−</span><span>1</span><span>+</span></div>
+              <div class="btn btn-primary" style="flex:1;justify-content:center;"><i class="ti ti-shopping-cart-plus"></i> Añadir al carrito</div>
+            </div>
+            <div class="specs">
+              <div class="spec-row"><span>Tela</span><b>Poliéster dry-fit</b></div>
+              <div class="spec-row"><span>Género</span><b>Hombre</b></div>
+              <div class="spec-row"><span>Cuidado</span><b>Lavado a máquina</b></div>
+              <div class="spec-row"><span>Garantía</span><b>90 días</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: CART -->
+    <div class="frame">
+      <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="frame-label">sportfitness.tienda / carrito</span></div>
+      <div class="screen-body">
+        <div class="nav">
+          <div class="logo"><span class="bar"></span>SPORTFITNESS</div>
+          <div class="nav-links"><span>Inicio</span><span>Hombre</span><span>Mujer</span><span>Suplementos</span></div>
+          <div class="nav-actions"><i class="ti ti-search"></i><i class="ti ti-user"></i><div class="cart-pill" style="background:var(--panel2);color:var(--ink);"><i class="ti ti-shopping-cart"></i> 3</div></div>
+        </div>
+        <div class="cart-body">
+          <div class="cart-items">
+            <span class="screen-tag">Tu carrito · 3 artículos</span>
+            <div class="cart-item">
+              <div class="cart-thumb"><img src="https://loremflickr.com/400/400/tshirt,man,sport?lock=17" alt="Camiseta técnica hombre" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf17/400/400'"></div>
+              <div class="cart-item-info"><h5>Camiseta técnica hombre</h5><span>Color negro · talla M</span></div>
+              <div class="cart-item-qty"><span>−</span> 1 <span>+</span></div>
+              <div class="price">$89.900</div>
+            </div>
+            <div class="cart-item">
+              <div class="cart-thumb"><img src="https://loremflickr.com/400/400/leggings,woman,fitness?lock=18" alt="Legging mujer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf18/400/400'"></div>
+              <div class="cart-item-info"><h5>Legging mujer high waist</h5><span>Color negro · talla S</span></div>
+              <div class="cart-item-qty"><span>−</span> 1 <span>+</span></div>
+              <div class="price">$119.900</div>
+            </div>
+            <div class="cart-item" style="border-bottom:none;">
+              <div class="cart-thumb"><img src="https://loremflickr.com/400/400/protein,supplement?lock=19" alt="Proteína whey" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf19/400/400'"></div>
+              <div class="cart-item-info"><h5>Proteína whey 2lb</h5><span>Sabor chocolate</span></div>
+              <div class="cart-item-qty"><span>−</span> 1 <span>+</span></div>
+              <div class="price">$129.900</div>
+            </div>
+          </div>
+          <div class="cart-summary">
+            <span class="screen-tag">Resumen</span>
+            <div class="promo"><input placeholder="Código de descuento" style="width:100%;"><div class="btn">Aplicar</div></div>
+            <div class="summary-row"><span>Subtotal</span><span>$339.700</span></div>
+            <div class="summary-row"><span>Envío</span><span>Gratis</span></div>
+            <div class="summary-row"><span>Descuento</span><span>−$0</span></div>
+            <div class="summary-row total"><span>Total</span><span>$339.700</span></div>
+            <div class="btn btn-primary" style="justify-content:center;margin-top:6px;"><i class="ti ti-lock"></i> Ir a pagar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 5: SUPPLEMENTS CATALOG -->
+    <div class="frame">
+      <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="frame-label">sportfitness.tienda / suplementos</span></div>
+      <div class="screen-body">
+        <div class="nav">
+          <div class="logo"><span class="bar"></span>SPORTFITNESS</div>
+          <div class="nav-links">
+            <span>Inicio</span><span>Hombre</span><span>Mujer</span><span class="active">Suplementos</span>
+          </div>
+          <div class="nav-actions">
+            <i class="ti ti-search"></i><i class="ti ti-user"></i>
+            <div class="cart-pill"><i class="ti ti-shopping-cart"></i> 3</div>
+          </div>
+        </div>
+        <div class="toolbar">
+          <span>Catálogo / Suplementos · 42 resultados</span>
+          <div class="sort">Ordenar: relevancia <i class="ti ti-chevron-down"></i></div>
+        </div>
+        <div class="catalog-body">
+          <div class="filters">
+            <div class="filter-group">
+              <span class="title">Tipo</span>
+              <div class="filter-row"><span class="checkbox on"></span> Proteína</div>
+              <div class="filter-row"><span class="checkbox"></span> Creatina</div>
+              <div class="filter-row"><span class="checkbox"></span> Pre-entreno</div>
+              <div class="filter-row"><span class="checkbox"></span> Aminoácidos (BCAA)</div>
+              <div class="filter-row"><span class="checkbox"></span> Vitaminas</div>
+            </div>
+            <div class="filter-group">
+              <span class="title">Sabor</span>
+              <div class="filter-row"><span class="checkbox on"></span> Chocolate</div>
+              <div class="filter-row"><span class="checkbox"></span> Vainilla</div>
+              <div class="filter-row"><span class="checkbox"></span> Fresa</div>
+              <div class="filter-row"><span class="checkbox"></span> Sin sabor</div>
+            </div>
+            <div class="filter-group">
+              <span class="title">Precio</span>
+              <div class="range-track"><div class="range-fill"></div><div class="range-thumb" style="left:15%"></div><div class="range-thumb" style="left:65%"></div></div>
+            </div>
+            <div class="filter-group">
+              <span class="title">Marca</span>
+              <div class="filter-row"><span class="checkbox"></span> Optimum Nutrition</div>
+              <div class="filter-row"><span class="checkbox on"></span> MuscleTech</div>
+              <div class="filter-row"><span class="checkbox"></span> BSN</div>
+            </div>
+          </div>
+          <div class="catalog-grid">
+            <div class="card"><div class="card-thumb"><span class="card-tag">-10%</span><img src="https://loremflickr.com/400/400/protein,supplement?lock=20" alt="Proteína whey" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf20/400/400'"></div><h4>Proteína whey 2lb</h4><span class="meta">Chocolate · 30 porciones</span><div class="card-foot"><span class="price">$129.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/creatine,supplement,jar?lock=21" alt="Creatina" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf21/400/400'"></div><h4>Creatina monohidratada 300g</h4><span class="meta">Sin sabor · 60 porciones</span><div class="card-foot"><span class="price">$79.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><span class="card-tag">Nuevo</span><img src="https://loremflickr.com/400/400/preworkout,supplement?lock=22" alt="Pre-entreno" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf22/400/400'"></div><h4>Pre-entreno energía 300g</h4><span class="meta">Fresa · 30 porciones</span><div class="card-foot"><span class="price">$99.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/bcaa,supplement,jar?lock=23" alt="BCAA" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf23/400/400'"></div><h4>BCAA 2:1:1 400g</h4><span class="meta">Vainilla · aminoácidos</span><div class="card-foot"><span class="price">$89.900</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/vitamins,pills,bottle?lock=24" alt="Multivitamínico" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf24/400/400'"></div><h4>Multivitamínico x60</h4><span class="meta">Cápsulas · 1 al día</span><div class="card-foot"><span class="price">$65.000</span><div class="add-btn">+</div></div></div>
+            <div class="card"><div class="card-thumb"><img src="https://loremflickr.com/400/400/protein,vegan,powder?lock=25" alt="Proteína vegana" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf25/400/400'"></div><h4>Proteína vegana 1.5lb</h4><span class="meta">Chocolate · sin lactosa</span><div class="card-foot"><span class="price">$139.900</span><div class="add-btn">+</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 6: SUPPLEMENT PRODUCT DETAIL -->
+    <div class="frame">
+      <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="frame-label">sportfitness.tienda / producto / proteina-whey-2lb</span></div>
+      <div class="screen-body">
+        <div class="nav">
+          <div class="logo"><span class="bar"></span>SPORTFITNESS</div>
+          <div class="nav-links"><span>Inicio</span><span>Hombre</span><span>Mujer</span><span class="active">Suplementos</span></div>
+          <div class="nav-actions"><i class="ti ti-search"></i><i class="ti ti-user"></i><div class="cart-pill"><i class="ti ti-shopping-cart"></i> 3</div></div>
+        </div>
+        <div class="pdp">
+          <div class="pdp-gallery">
+            <div class="pdp-main"><img src="https://loremflickr.com/400/400/protein,supplement?lock=26" alt="Proteína whey 2lb" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf26/400/400'"></div>
+            <div class="pdp-thumbs">
+              <div class="t on"><img src="https://loremflickr.com/100/100/tshirt,man,sport?lock=27" alt="miniatura 1" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf27/100/100'"></div>
+              <div class="t"><img src="https://loremflickr.com/100/100/gym,clothing?lock=28" alt="miniatura 2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf28/100/100'"></div>
+              <div class="t"><img src="https://loremflickr.com/100/100/sportswear,fabric?lock=29" alt="miniatura 3" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf29/100/100'"></div>
+              <div class="t"><img src="https://loremflickr.com/100/100/sport,apparel?lock=30" alt="miniatura 4" onerror="this.onerror=null;this.src='https://picsum.photos/seed/sf30/100/100'"></div>
+            </div>
+          </div>
+          <div class="pdp-info">
+            <span class="eyebrow">Suplementos · Proteína</span>
+            <h2>Proteína whey 2lb</h2>
+            <div class="stars">★★★★★ <span style="color:var(--ink-dim);font-family:'Inter';font-size:12px;">(340 reseñas)</span></div>
+            <div class="pdp-price">$129.900 <span class="old">$144.000</span></div>
+            <p style="color:var(--ink-dim);font-size:13px;line-height:1.6;margin:0;">Proteína de suero aislada con 24g de proteína por porción, bajo contenido de azúcar y rápida absorción para recuperación muscular.</p>
+            <div>
+              <span class="title" style="font-size:11px;text-transform:uppercase;color:var(--ink-dim);display:block;margin-bottom:8px;">Sabor</span>
+              <div class="size-row">
+                <div class="size-chip on" style="width:auto;padding:0 12px;">Chocolate</div>
+                <div class="size-chip" style="width:auto;padding:0 12px;">Vainilla</div>
+                <div class="size-chip" style="width:auto;padding:0 12px;">Fresa</div>
+              </div>
+            </div>
+            <div>
+              <span class="title" style="font-size:11px;text-transform:uppercase;color:var(--ink-dim);display:block;margin-bottom:8px;">Tamaño</span>
+              <div class="size-row">
+                <div class="size-chip" style="width:auto;padding:0 12px;">1 lb</div>
+                <div class="size-chip on" style="width:auto;padding:0 12px;">2 lb</div>
+                <div class="size-chip" style="width:auto;padding:0 12px;">5 lb</div>
+              </div>
+            </div>
+            <div class="qty-row">
+              <div class="qty-box"><span>−</span><span>1</span><span>+</span></div>
+              <div class="btn btn-primary" style="flex:1;justify-content:center;"><i class="ti ti-shopping-cart-plus"></i> Añadir al carrito</div>
+            </div>
+            <div class="specs">
+              <div class="spec-row"><span>Proteína por porción</span><b>24 g</b></div>
+              <div class="spec-row"><span>Porciones</span><b>30</b></div>
+              <div class="spec-row"><span>Tipo</span><b>Whey aislada</b></div>
+              <div class="spec-row"><span>Vencimiento</span><b>12 meses</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

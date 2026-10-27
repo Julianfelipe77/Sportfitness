@@ -1,0 +1,1 @@
+[2026-09-01 22:45:39] ERROR: Falta vendor/autoload.php. Ejecuta "composer require phpmailer/phpmailer" en la carpeta del proyecto (sportfitness/).

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suplementos | Sport+Fitness</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/alertas.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+
+<div class="container">
+
+<button class="btn text-white me-2" id="menu-btn">
+
+<i class="fas fa-bars fa-2x"></i>
+
+</button>
+
+<a class="navbar-brand fs-2 fw-bold" href="index.html">
+
+Sport<span class="text-success">+</span>Fitness
+
+</a>
+
+<div class="d-flex align-items-center gap-3">
+
+<div class="nav-usuario dropdown"></div>
+
+<a href="carrito.html" class="text-white icono-carrito">
+<i class="fa-solid fa-cart-shopping fa-2x"></i>
+<span class="badge bg-success rounded-circle position-absolute top-0 start-100 translate-middle badge-carrito">0</span>
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<div id="menu-overlay"></div>
+
+<div class="menu-lateral" id="menu-lateral">
+
+    <a href="index.html"><i class="fa-solid fa-house text-success"></i>Inicio</a>
+
+    <a href="hombre.html"><i class="fa-solid fa-shirt text-success"></i>Hombre</a>
+
+    <a href="mujer.html"><i class="fa-solid fa-person-dress text-danger"></i>Mujer</a>
+
+    <a href="suplementos.html"><i class="fa-solid fa-prescription-bottle text-primary"></i>Suplementos</a>
+
+    <a href="contacto.html"><i class="fa-regular fa-envelope text-primary"></i>Contacto</a>
+
+    <a href="creditos.html"><i class="fa-solid fa-users text-success"></i>Créditos</a>
+
+    <hr>
+
+    <a href="carrito.html"><i class="fa-solid fa-cart-shopping text-success"></i>Carrito</a>
+
+    <div id="menu-lateral-cuenta"></div>
+
+</div>
+
+<!-- Banner -->
+
+<section class="container mt-4">
+
+<img src="Imagenes/suplementos/suplementos portada2.jpg"
+class="img-fluid rounded shadow" alt="Suplementos deportivos - Sport+Fitness">
+
+</section>
+
+<section class="container mt-5">
+
+<h2 class="text-center fw-bold mb-5">
+
+SUPLEMENTOS
+
+</h2>
+
+<div class="row g-4">
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/proteina whey Gold/proteina1.jpg" class="card-img-top" alt="Proteína Whey Gold" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Proteína Whey Gold</h5>
+
+<h4 class="text-success">$239.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-1" data-nombre="Proteína Whey Gold"
+data-precio="239900" data-imagen="Imagenes/suplementos/proteina whey Gold/proteina1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/creatina monohidratadas/creatina1.jpg" class="card-img-top" alt="Creatina Monohidratada" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Creatina Monohidratada</h5>
+
+<h4 class="text-success">$109.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-2" data-nombre="Creatina Monohidratada"
+data-precio="109900" data-imagen="Imagenes/suplementos/creatina monohidratadas/creatina1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/pre entreno/pre entreno1.jpg" class="card-img-top" alt="Pre Entreno" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Pre Entreno</h5>
+
+<h4 class="text-success">$149.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-3" data-nombre="Pre Entreno"
+data-precio="149900" data-imagen="Imagenes/suplementos/pre entreno/pre entreno1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/vitaminas deportivas/vitaminas1.jpg" class="card-img-top" alt="Vitaminas Deportivas" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Vitaminas Deportivas</h5>
+
+<h4 class="text-success">$79.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-4" data-nombre="Vitaminas Deportivas"
+data-precio="79900" data-imagen="Imagenes/suplementos/vitaminas deportivas/vitaminas1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/BCAA en polvo/BCAA1.jpg" class="card-img-top" alt="BCAA en Polvo" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>BCAA en Polvo</h5>
+
+<h4 class="text-success">$99.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-5" data-nombre="BCAA en Polvo"
+data-precio="99900" data-imagen="Imagenes/suplementos/BCAA en polvo/BCAA1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/barras de proteinas x12/barras de proteina1.webp" class="card-img-top" alt="Barras de Proteína x12" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Barras de Proteína x12</h5>
+
+<h4 class="text-success">$89.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-6" data-nombre="Barras de Proteína x12"
+data-precio="89900" data-imagen="Imagenes/suplementos/barras de proteinas x12/barras de proteina1.webp">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/omega 3/omega1.jpg" class="card-img-top" alt="Omega 3" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Omega 3</h5>
+
+<h4 class="text-success">$69.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-7" data-nombre="Omega 3"
+data-precio="69900" data-imagen="Imagenes/suplementos/omega 3/omega1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/shaker sport+fitness/shaker1.jpg" class="card-img-top" alt="Shaker Sport+Fitness" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Shaker Sport+Fitness</h5>
+
+<h4 class="text-success">$29.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-8" data-nombre="Shaker Sport+Fitness"
+data-precio="29900" data-imagen="Imagenes/suplementos/shaker sport+fitness/shaker1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/multivitaminicos/multivitaminicos1.jpg" class="card-img-top" alt="Multivitamínico" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Multivitamínico</h5>
+
+<h4 class="text-success">$69.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-9" data-nombre="Multivitamínico"
+data-precio="69900" data-imagen="Imagenes/suplementos/multivitaminicos/multivitaminicos1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/glutamina/glutamina1.jpg" class="card-img-top" alt="Glutamina" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Glutamina</h5>
+
+<h4 class="text-success">$89.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-10" data-nombre="Glutamina"
+data-precio="89900" data-imagen="Imagenes/suplementos/glutamina/glutamina1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/quemador de grasas/quemador1.jpg" class="card-img-top" alt="Quemador de Grasa" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Quemador de Grasa</h5>
+
+<h4 class="text-success">$129.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-11" data-nombre="Quemador de Grasa"
+data-precio="129900" data-imagen="Imagenes/suplementos/quemador de grasas/quemador1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/suplementos/colageno hidrolizado/colageno1.jpg" class="card-img-top" alt="Colágeno Hidrolizado" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Colágeno Hidrolizado</h5>
+
+<h4 class="text-success">$99.900</h4>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="sup-12" data-nombre="Colágeno Hidrolizado"
+data-precio="99900" data-imagen="Imagenes/suplementos/colageno hidrolizado/colageno1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="bg-dark text-white mt-5">
+
+<div class="container py-4 text-center">
+
+<h4>Sport+Fitness</h4>
+
+<p>© 2026 Todos los derechos reservados</p>
+
+<div>
+
+<a href="#" data-red="facebook" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+
+<a href="#" data-red="instagram" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+
+<a href="#" data-red="whatsapp" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-whatsapp fa-2x"></i></a>
+
+<a href="#" data-red="twitter" target="_blank" rel="noopener" class="text-white"><i class="fab fa-x-twitter fa-2x"></i></a>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
+<script src="js/alertas.js"></script>
+<script src="js/api.js?v=2"></script>
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

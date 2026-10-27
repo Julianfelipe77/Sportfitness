@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel de administrador | Sport+Fitness</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/alertas.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark bg-dark">
+<div class="container">
+<button class="btn text-white me-2" id="menu-btn">
+<i class="fas fa-bars fa-2x"></i>
+</button>
+<a class="navbar-brand fw-bold fs-2" href="index.html">
+Sport<span class="text-success">+</span>Fitness
+</a>
+<div class="d-flex align-items-center gap-3">
+<span class="text-white-50 d-none d-md-inline"><i class="fa-solid fa-gauge me-1"></i>Panel de administrador</span>
+<div class="nav-usuario dropdown"></div>
+</div>
+</div>
+</nav>
+
+<div id="menu-overlay"></div>
+
+<div class="menu-lateral" id="menu-lateral">
+    <a href="admin.html"><i class="fa-solid fa-gauge text-success"></i>Panel admin</a>
+    <a href="index.html"><i class="fa-solid fa-house text-success"></i>Ir a la tienda</a>
+    <a href="perfil.html"><i class="fa-solid fa-user-pen text-secondary"></i>Mi perfil</a>
+    <hr>
+    <a href="#" id="menu-cerrar-sesion"><i class="fa-solid fa-right-from-bracket text-danger"></i>Cerrar sesión</a>
+</div>
+
+<div class="container-fluid" id="panel-admin">
+
+<div class="container mt-4 mb-5">
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0">Hola, <span id="admin-nombre">Administrador</span> 👋</h2>
+            <p class="text-muted mb-0" id="admin-correo">administra tu tienda desde aquí.</p>
+        </div>
+        <button class="btn btn-outline-danger no-imprimir" id="btn-cerrar-sesion-admin">
+            <i class="fa-solid fa-right-from-bracket me-1"></i> Cerrar sesión
+        </button>
+    </div>
+
+    <!-- Tarjetas resumen -->
+    <div class="row g-3 mb-4" id="tarjetas-resumen"></div>
+
+    <!-- Navegación por pestañas -->
+    <ul class="nav nav-pills mb-4 flex-wrap gap-2 no-imprimir" id="admin-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-inventario" type="button">
+                <i class="fa-solid fa-boxes-stacked me-1"></i> Inventario
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-pedidos" type="button">
+                <i class="fa-solid fa-truck-fast me-1"></i> Pedidos
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-clientes" type="button">
+                <i class="fa-solid fa-users me-1"></i> Clientes
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-vendidos" type="button">
+                <i class="fa-solid fa-fire me-1"></i> Más vendidos
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-estadisticas" type="button">
+                <i class="fa-solid fa-chart-line me-1"></i> Estadísticas de ventas
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-agotados" type="button">
+                <i class="fa-solid fa-triangle-exclamation me-1"></i> Agotados
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-informe" type="button">
+                <i class="fa-solid fa-file-lines me-1"></i> Informe quincenal
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+
+        <!-- ===================== INVENTARIO ===================== -->
+        <div class="tab-pane fade show active" id="tab-inventario">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold mb-0">Inventario y catálogo</h4>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-producto" id="btn-nuevo-producto">
+                    <i class="fa-solid fa-plus me-1"></i> Añadir producto
+                </button>
+            </div>
+
+            <div class="mb-3 d-flex flex-wrap gap-2">
+                <input type="text" class="form-control" style="max-width:260px" id="filtro-buscar" placeholder="Buscar producto...">
+                <select class="form-select" style="max-width:200px" id="filtro-categoria">
+                    <option value="">Todas las categorías</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Suplementos">Suplementos</option>
+                </select>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle tabla-admin bg-white">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            <th class="no-imprimir">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-inventario"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===================== PEDIDOS ===================== -->
+        <div class="tab-pane fade" id="tab-pedidos">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold mb-0">Pedidos recibidos</h4>
+                <input type="text" class="form-control no-imprimir" style="max-width:260px" id="filtro-pedidos" placeholder="Buscar por cliente...">
+            </div>
+            <p class="text-muted">Dirección, teléfono y método de pago de cada pedido para coordinar la entrega.</p>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle tabla-admin bg-white">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Contacto</th>
+                            <th>Entrega</th>
+                            <th>Pago</th>
+                            <th>Total</th>
+                            <th class="no-imprimir">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-pedidos"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===================== CLIENTES ===================== -->
+        <div class="tab-pane fade" id="tab-clientes">
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <h4 class="fw-bold mb-0">Clientes</h4>
+                <div class="d-flex flex-wrap gap-2 no-imprimir">
+                    <button class="btn btn-outline-warning" id="btn-desactivar-inactivos">
+                        <i class="fa-solid fa-user-clock me-1"></i> Deshabilitar inactivos
+                    </button>
+                    <button class="btn btn-success" id="btn-nuevo-cliente">
+                        <i class="fa-solid fa-user-plus me-1"></i> Nuevo cliente
+                    </button>
+                </div>
+            </div>
+
+            <div class="alert d-none" id="clientes-aviso"></div>
+
+            <div class="row g-3 mb-3" id="clientes-resumen"></div>
+
+            <div class="mb-3 d-flex flex-wrap gap-2 no-imprimir">
+                <input type="text" class="form-control" style="max-width:260px" id="clientes-buscar" placeholder="Buscar nombre, correo o teléfono...">
+                <select class="form-select" style="max-width:220px" id="clientes-filtro-estado">
+                    <option value="">Todos los estados</option>
+                    <option value="activo">Activos</option>
+                    <option value="riesgo">Inactivos (sin comprar)</option>
+                    <option value="deshabilitado">Deshabilitados</option>
+                </select>
+                <select class="form-select" style="max-width:240px" id="clientes-umbral" title="Tiempo sin comprar para considerar a un cliente inactivo">
+                    <option value="30">Inactivo: +30 días sin comprar</option>
+                    <option value="60">Inactivo: +60 días sin comprar</option>
+                    <option value="90" selected>Inactivo: +90 días sin comprar</option>
+                    <option value="180">Inactivo: +6 meses sin comprar</option>
+                    <option value="365">Inactivo: +1 año sin comprar</option>
+                </select>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle tabla-admin bg-white">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Teléfono</th>
+                            <th>Registro</th>
+                            <th class="text-center">Pedidos</th>
+                            <th>Total comprado</th>
+                            <th>Última compra</th>
+                            <th>Estado</th>
+                            <th class="no-imprimir">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-clientes"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===================== MÁS VENDIDOS ===================== -->
+        <div class="tab-pane fade" id="tab-vendidos">
+            <h4 class="fw-bold mb-3">Productos más vendidos (histórico)</h4>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <canvas id="grafico-vendidos" height="260"></canvas>
+                </div>
+                <div class="col-lg-6">
+                    <div class="table-responsive">
+                        <table class="table table-hover tabla-admin bg-white">
+                            <thead class="table-dark">
+                                <tr><th>#</th><th>Producto</th><th>Unidades vendidas</th><th>Ingresos generados</th></tr>
+                            </thead>
+                            <tbody id="tabla-vendidos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== ESTADÍSTICAS ===================== -->
+        <div class="tab-pane fade" id="tab-estadisticas">
+            <h4 class="fw-bold mb-3">Estadísticas de ventas (últimos 30 días)</h4>
+            <canvas id="grafico-ventas-dia" height="110"></canvas>
+
+            <div class="row g-3 mt-4">
+                <div class="col-md-4">
+                    <div class="card admin-tarjeta p-3">
+                        <span class="text-muted">Ticket promedio</span>
+                        <span class="admin-valor" id="stat-ticket-promedio">-</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card admin-tarjeta p-3">
+                        <span class="text-muted">Ventas este mes</span>
+                        <span class="admin-valor" id="stat-ventas-mes">-</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card admin-tarjeta p-3">
+                        <span class="text-muted">Ingresos este mes</span>
+                        <span class="admin-valor" id="stat-ingresos-mes">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="fw-bold mt-4">Ventas por categoría</h5>
+            <div class="row">
+                <div class="col-lg-6">
+                    <canvas id="grafico-categorias" height="220"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== AGOTADOS ===================== -->
+        <div class="tab-pane fade" id="tab-agotados">
+            <h4 class="fw-bold mb-3">Productos agotados</h4>
+            <p class="text-muted">Productos con 0 unidades disponibles. Actualiza el stock desde la pestaña de Inventario.</p>
+            <div class="table-responsive">
+                <table class="table table-hover tabla-admin bg-white">
+                    <thead class="table-dark">
+                        <tr><th>Producto</th><th>Categoría</th><th>Precio</th><th class="no-imprimir">Acción rápida</th></tr>
+                    </thead>
+                    <tbody id="tabla-agotados"></tbody>
+                </table>
+            </div>
+            <div id="sin-agotados" class="alert alert-success d-none">
+                <i class="fa-solid fa-circle-check me-1"></i> No hay productos agotados en este momento.
+            </div>
+        </div>
+
+        <!-- ===================== INFORME QUINCENAL ===================== -->
+        <div class="tab-pane fade" id="tab-informe">
+
+            <div class="d-flex justify-content-between align-items-center mb-3 no-imprimir">
+                <h4 class="fw-bold mb-0">Informe quincenal (últimos 15 días)</h4>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-secondary" id="btn-imprimir-informe">
+                        <i class="fa-solid fa-print me-1"></i> Imprimir / PDF
+                    </button>
+                    <button class="btn btn-success" id="btn-descargar-informe">
+                        <i class="fa-solid fa-download me-1"></i> Descargar (.txt)
+                    </button>
+                </div>
+            </div>
+
+            <div class="informe-quincenal shadow-sm" id="contenido-informe">
+                <!-- generado por admin.js -->
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- MODAL: Añadir / editar producto -->
+<div class="modal fade" id="modal-producto" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="form-producto">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-producto-titulo">Añadir producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="producto-id-original">
+
+            <div class="mb-3">
+                <label class="form-label">Nombre del producto</label>
+                <input type="text" class="form-control" id="producto-nombre" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Categoría</label>
+                <select class="form-select" id="producto-categoria" required>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Suplementos">Suplementos</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label class="form-label">Precio (COP)</label>
+                    <input type="number" min="0" class="form-control" id="producto-precio" required>
+                </div>
+                <div class="col-6 mb-3">
+                    <label class="form-label">Stock</label>
+                    <input type="number" min="0" class="form-control" id="producto-stock" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Crear / editar cliente -->
+<div class="modal fade" id="modal-cliente" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="form-cliente" autocomplete="off">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-cliente-titulo">Nuevo cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="cliente-id">
+
+            <div class="mb-3">
+                <label class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="cliente-nombre" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="cliente-correo" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Teléfono (solo números)</label>
+                <input type="text" inputmode="numeric" class="form-control" id="cliente-telefono" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" id="cliente-password-label">Contraseña</label>
+                <input type="password" class="form-control" id="cliente-password" autocomplete="new-password">
+                <div class="form-text" id="cliente-password-ayuda"></div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Detalle del cliente y sus pedidos -->
+<div class="modal fade" id="modal-cliente-detalle" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fa-solid fa-user me-2"></i><span id="detalle-titulo">Cliente</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="detalle-contenido"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Deshabilitar clientes inactivos -->
+<div class="modal fade" id="modal-inactivos" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fa-solid fa-user-clock me-2"></i>Deshabilitar clientes inactivos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted mb-2">
+            Se muestran los clientes con la cuenta habilitada que no compran desde hace al menos el tiempo elegido
+            (si nunca compraron, se cuenta desde que se registraron). Desmarca a quienes quieras conservar.
+            Podrás volver a habilitar cualquier cuenta cuando quieras.
+        </p>
+        <div class="mb-3">
+            <select class="form-select" style="max-width:280px" id="inactivos-dias">
+                <option value="30">+30 días sin comprar</option>
+                <option value="60">+60 días sin comprar</option>
+                <option value="90" selected>+90 días sin comprar</option>
+                <option value="180">+6 meses sin comprar</option>
+                <option value="365">+1 año sin comprar</option>
+            </select>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-sm align-middle">
+                <thead>
+                    <tr>
+                        <th style="width:40px"><input type="checkbox" class="form-check-input" id="inactivos-todos" checked></th>
+                        <th>Cliente</th>
+                        <th>Última compra</th>
+                    </tr>
+                </thead>
+                <tbody id="inactivos-lista"></tbody>
+            </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning" id="btn-confirmar-inactivos">Deshabilitar seleccionados</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white mt-5">
+<div class="container py-4 text-center">
+<h4>Sport+Fitness</h4>
+<p>© 2026 Todos los derechos reservados. Panel de administrador.</p>
+</div>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
+<script src="js/alertas.js"></script>
+<script src="js/api.js?v=2"></script>
+<script src="js/script.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+
+</html>

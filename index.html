@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sport+Fitness</title>
+
+    <!-- Bootstrap -->
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/alertas.css">
+</head>
+
+<body>
+
+<!--================= NAVBAR =================-->
+
+<nav class="navbar navbar-dark bg-dark px-4">
+
+    <div class="container-fluid">
+
+        <button class="btn text-white" id="menu-btn">
+
+            <i class="fas fa-bars fa-2x"></i>
+
+        </button>
+
+        <a class="navbar-brand fs-2 fw-bold mx-auto" href="index.html">
+
+            Sport<span class="text-success">+</span>Fitness
+
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+
+            <div class="nav-usuario dropdown"></div>
+
+            <a href="carrito.html" class="text-white icono-carrito">
+                <i class="fa-solid fa-cart-shopping fs-3"></i>
+                <span class="badge bg-success rounded-circle position-absolute top-0 start-100 translate-middle badge-carrito">
+                    0
+                </span>
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!--================ MENU =================-->
+
+<div id="menu-overlay"></div>
+
+<div class="menu-lateral" id="menu-lateral">
+
+    <a href="index.html"><i class="fa-solid fa-house text-success"></i>Inicio</a>
+
+    <a href="hombre.html"><i class="fa-solid fa-shirt text-success"></i>Hombre</a>
+
+    <a href="mujer.html"><i class="fa-solid fa-person-dress text-danger"></i>Mujer</a>
+
+    <a href="suplementos.html"><i class="fa-solid fa-prescription-bottle text-primary"></i>Suplementos</a>
+
+    <a href="contacto.html"><i class="fa-regular fa-envelope text-primary"></i>Contacto</a>
+
+    <a href="creditos.html"><i class="fa-solid fa-users text-success"></i>Créditos</a>
+
+    <hr>
+
+    <a href="carrito.html"><i class="fa-solid fa-cart-shopping text-success"></i>Carrito</a>
+
+    <div id="menu-lateral-cuenta"></div>
+
+</div>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+<div class="col-12">
+
+<!--================= CARRUSEL =================-->
+
+<div id="banner" class="carousel slide mt-3" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+
+        <button type="button" data-bs-target="#banner" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#banner" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#banner" data-bs-slide-to="2"></button>
+
+    </div>
+
+    <div class="carousel-inner rounded">
+
+        <div class="carousel-item active">
+
+            <img src="img/Banner1.png" class="d-block w-100" alt="Promoción destacada Sport+Fitness - banner 1">
+
+        </div>
+
+        <div class="carousel-item">
+
+            <img src="img/banner2.png" class="d-block w-100" alt="Promoción destacada Sport+Fitness - banner 2" loading="lazy">
+
+        </div>
+
+        <div class="carousel-item">
+
+            <img src="img/banner3.png" class="d-block w-100" alt="Promoción destacada Sport+Fitness - banner 3" loading="lazy">
+
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev"
+        type="button" data-bs-target="#banner" data-bs-slide="prev">
+
+        <span class="carousel-control-prev-icon"></span>
+
+    </button>
+
+    <button class="carousel-control-next"
+        type="button" data-bs-target="#banner" data-bs-slide="next">
+
+        <span class="carousel-control-next-icon"></span>
+
+    </button>
+
+</div>
+
+<!--============ TARJETAS ============-->
+
+<div class="row mt-5">
+
+    <div class="col-md-4">
+
+        <div class="categoria">
+
+            <a href="hombre.html">
+                <img src="Imagenes/Hombre/portada hombre.png" class="img-fluid" alt="Categoría Hombre - Sport+Fitness" loading="lazy">
+
+                <div class="titulo bg-success"><i class="fa-solid fa-shirt"></i>HOMBRE</div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="categoria">
+
+            <a href="mujer.html">
+                <img src="Imagenes/Mujer/mujer portada.png" class="img-fluid" alt="Categoría Mujer - Sport+Fitness" loading="lazy">
+
+                <div class="titulo bg-danger"><i class="fa-solid fa-person-dress"></i>MUJER</div>
+            </a>
+
+        </div>
+    </div>
+
+        <div class="col-md-4">
+
+        <div class="categoria">
+
+            <a href="suplementos.html">
+                <img src="Imagenes/suplementos/suplementos portada.jpg" class="img-fluid" alt="Categoría Suplementos - Sport+Fitness" loading="lazy">
+
+                <div class="titulo bg-warning">
+                    <i class="fa-solid fa-prescription-bottle"></i>SUPLEMENTOS
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= PRODUCTOS DESTACADOS ================= -->
+
+<section class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">PRODUCTOS DESTACADOS</h2>
+        <p class="text-muted">Los más vendidos de nuestra tienda</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/camiseta deportiva.jpg" class="card-img-top" alt="Camiseta Deportiva" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Camiseta Deportiva</h5>
+
+                    <h4 class="text-success">$79.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="mujer-10" data-nombre="Camiseta Deportiva"
+                        data-precio="79900" data-imagen="Imagenes/Destacados/camiseta deportiva.jpg">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/tennis Running.jpg" class="card-img-top" alt="Tenis Running" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Tenis Running</h5>
+
+                    <h4 class="text-success">$269.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="mujer-3" data-nombre="Tenis Running"
+                        data-precio="269900" data-imagen="Imagenes/Destacados/tennis Running.jpg">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/proteinas whey.webp" class="card-img-top" alt="Proteína Whey Gold" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Proteína Whey Gold</h5>
+
+                    <h4 class="text-success">$239.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="sup-1" data-nombre="Proteína Whey Gold"
+                        data-precio="239900" data-imagen="Imagenes/Destacados/proteinas whey.webp">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/gorras deportivas.webp" class="card-img-top" alt="Gorra Deportiva" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Gorra Deportiva</h5>
+
+                    <h4 class="text-success">$59.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="hombre-4" data-nombre="Gorra Deportiva"
+                        data-precio="59900" data-imagen="Imagenes/Destacados/gorras deportivas.webp">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/sudadera.jpg" class="card-img-top" alt="Sudadera con Capota" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Sudadera con Capota</h5>
+
+                    <h4 class="text-success">$159.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="hombre-8" data-nombre="Sudadera con Capota"
+                        data-precio="159900" data-imagen="Imagenes/Destacados/sudadera.jpg">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/top deportivo.jpg" class="card-img-top" alt="Top Deportivo" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Top Deportivo</h5>
+
+                    <h4 class="text-success">$89.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="mujer-1" data-nombre="Top Deportivo"
+                        data-precio="89900" data-imagen="Imagenes/Destacados/top deportivo.jpg">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/creatina monohidratada.jpg" class="card-img-top" alt="Creatina Monohidratada" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Creatina Monohidratada</h5>
+
+                    <h4 class="text-success">$109.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="sup-2" data-nombre="Creatina Monohidratada"
+                        data-precio="109900" data-imagen="Imagenes/Destacados/creatina monohidratada.jpg">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/pantalon deportivo.avif" class="card-img-top" alt="Pantalón Deportivo" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Pantalón Deportivo</h5>
+
+                    <h4 class="text-success">$149.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="hombre-2" data-nombre="Pantalón Deportivo"
+                        data-precio="149900" data-imagen="Imagenes/Destacados/pantalon deportivo.avif">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/guantes deportivos.webp" class="card-img-top" alt="Guantes de Entrenamiento" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Guantes de Entrenamiento</h5>
+
+                    <h4 class="text-success">$39.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="hombre-9" data-nombre="Guantes de Entrenamiento"
+                        data-precio="39900" data-imagen="Imagenes/Destacados/guantes deportivos.webp">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/chaquetas deportivas.avif" class="card-img-top" alt="Chaqueta Deportiva" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Chaqueta Deportiva</h5>
+
+                    <h4 class="text-success">$169.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="mujer-5" data-nombre="Chaqueta Deportiva"
+                        data-precio="169900" data-imagen="Imagenes/Destacados/chaquetas deportivas.avif">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/licras deportivas.avif" class="card-img-top" alt="Licra Fitness" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Licra Fitness</h5>
+
+                    <h4 class="text-success">$119.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="mujer-2" data-nombre="Licra Fitness"
+                        data-precio="119900" data-imagen="Imagenes/Destacados/licras deportivas.avif">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card producto shadow">
+
+                <img src="Imagenes/Destacados/pree entrenos.jpg" class="card-img-top" alt="Pre Entreno" loading="lazy">
+
+                <div class="card-body text-center">
+
+                    <h5>Pre Entreno</h5>
+
+                    <h4 class="text-success">$149.900</h4>
+
+                    <button class="btn btn-success w-100 btn-agregar"
+                        data-id="sup-3" data-nombre="Pre Entreno"
+                        data-precio="149900" data-imagen="Imagenes/Destacados/pree entrenos.jpg">
+                        Agregar al carrito
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-dark text-white mt-5">
+
+    <div class="container py-5">
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <h3>Sport+Fitness</h3>
+
+                <p>
+                    Tu tienda deportiva online con ropa, accesorios
+                    y suplementos de las mejores marcas.
+                </p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h4>Contáctanos</h4>
+
+                <p>
+                    📞 +57 320 599 1285
+                </p>
+
+                <p>
+                    ✉ contacto@sportfitness.com
+                </p>
+
+                <p>
+                    📍 Neiva - Huila, Colombia
+                </p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h4>Síguenos</h4>
+
+                <a href="#" data-red="facebook" target="_blank" rel="noopener" class="text-white fs-3 me-3">
+                    <i class="fab fa-facebook"></i>
+                </a>
+
+                <a href="#" data-red="instagram" target="_blank" rel="noopener" class="text-white fs-3 me-3">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="#" data-red="twitter" target="_blank" rel="noopener" class="text-white fs-3 me-3">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+
+                <a href="#" data-red="whatsapp" target="_blank" rel="noopener" class="text-white fs-3">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            © 2026 Sport+Fitness | Todos los derechos reservados.
+
+        </div>
+
+    </div>
+
+</footer>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
+<script src="js/alertas.js"></script>
+<script src="js/api.js?v=2"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

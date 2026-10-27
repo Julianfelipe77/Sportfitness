@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mujer | Sport+Fitness</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/alertas.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark bg-dark">
+
+<div class="container">
+
+<button class="btn text-white me-2" id="menu-btn">
+
+<i class="fas fa-bars fa-2x"></i>
+
+</button>
+
+<a class="navbar-brand fw-bold fs-2" href="index.html">
+
+Sport<span class="text-success">+</span>Fitness
+
+</a>
+
+<div class="d-flex align-items-center gap-3">
+
+<div class="nav-usuario dropdown"></div>
+
+<a href="carrito.html" class="text-white icono-carrito">
+<i class="fa-solid fa-cart-shopping fa-2x"></i>
+<span class="badge bg-success rounded-circle position-absolute top-0 start-100 translate-middle badge-carrito">0</span>
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<div id="menu-overlay"></div>
+
+<div class="menu-lateral" id="menu-lateral">
+
+    <a href="index.html"><i class="fa-solid fa-house text-success"></i>Inicio</a>
+
+    <a href="hombre.html"><i class="fa-solid fa-shirt text-success"></i>Hombre</a>
+
+    <a href="mujer.html"><i class="fa-solid fa-person-dress text-danger"></i>Mujer</a>
+
+    <a href="suplementos.html"><i class="fa-solid fa-prescription-bottle text-primary"></i>Suplementos</a>
+
+    <a href="contacto.html"><i class="fa-regular fa-envelope text-primary"></i>Contacto</a>
+
+    <a href="creditos.html"><i class="fa-solid fa-users text-success"></i>Créditos</a>
+
+    <hr>
+
+    <a href="carrito.html"><i class="fa-solid fa-cart-shopping text-success"></i>Carrito</a>
+
+    <div id="menu-lateral-cuenta"></div>
+
+</div>
+
+<!-- Banner -->
+
+<section class="container mt-4">
+
+<img src="Imagenes/Mujer/mujer portada 2.png"
+class="img-fluid rounded shadow" alt="Colección deportiva para mujer - Sport+Fitness">
+
+</section>
+
+<section class="container mt-5">
+
+<h2 class="text-center fw-bold mb-5">
+
+COLECCIÓN MUJER
+
+</h2>
+
+<div class="row g-4">
+
+<!-- Producto 1 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/top deportivos/top1.avif" class="card-img-top" alt="Top Deportivo" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Top Deportivo</h5>
+
+<p class="text-success fs-4">$89.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-1" data-nombre="Top Deportivo"
+data-precio="89900" data-imagen="Imagenes/Mujer/top deportivos/top1.avif">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 2 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/licras/licra1.avif" class="card-img-top" alt="Licra Fitness" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Licra Fitness</h5>
+
+<p class="text-success fs-4">$119.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-2" data-nombre="Licra Fitness"
+data-precio="119900" data-imagen="Imagenes/Mujer/licras/licra1.avif">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 3 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/tennis/zapatos1.jpg" class="card-img-top" alt="Tenis Running" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Tenis Running</h5>
+
+<p class="text-success fs-4">$269.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-3" data-nombre="Tenis Running"
+data-precio="269900" data-imagen="Imagenes/Mujer/tennis/zapatos1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 4 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/buso/buzo1.avif" class="card-img-top" alt="Buso Deportivo" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Buso Deportivo</h5>
+
+<p class="text-success fs-4">$139.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-4" data-nombre="Buso Deportivo"
+data-precio="139900" data-imagen="Imagenes/Mujer/buso/buzo1.avif">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 5 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/chaqueta deportiva/chaqueta5.jpg" class="card-img-top" alt="Chaqueta Deportiva" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Chaqueta Deportiva</h5>
+
+<p class="text-success fs-4">$169.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-5" data-nombre="Chaqueta Deportiva"
+data-precio="169900" data-imagen="Imagenes/Mujer/chaqueta deportiva/chaqueta5.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 6 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/short/short1.avif" class="card-img-top" alt="Short Fitness" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Short Fitness</h5>
+
+<p class="text-success fs-4">$89.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-6" data-nombre="Short Fitness"
+data-precio="89900" data-imagen="Imagenes/Mujer/short/short1.avif">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 7 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/diadema/diadema8.jpg" class="card-img-top" alt="Diadema para Cabello" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Diadema para Cabello</h5>
+
+<p class="text-success fs-4">$19.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-7" data-nombre="Diadema para Cabello"
+data-precio="19900" data-imagen="Imagenes/Mujer/diadema/diadema8.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 8 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/chaleco/chaleco1.jpg" class="card-img-top" alt="Chaleco Deportivo" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Chaleco Deportivo</h5>
+
+<p class="text-success fs-4">$129.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-8" data-nombre="Chaleco Deportivo"
+data-precio="129900" data-imagen="Imagenes/Mujer/chaleco/chaleco1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 9 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/guantes/guantes1.jpg" class="card-img-top" alt="Guantes de Entrenamiento" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Guantes de Entrenamiento</h5>
+
+<p class="text-success fs-4">$39.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-9" data-nombre="Guantes de Entrenamiento"
+data-precio="39900" data-imagen="Imagenes/Mujer/guantes/guantes1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 10 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/camisetas/camiseta1.avif" class="card-img-top" alt="Camiseta Deportiva" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Camiseta Deportiva</h5>
+
+<p class="text-success fs-4">$79.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-10" data-nombre="Camiseta Deportiva"
+data-precio="79900" data-imagen="Imagenes/Mujer/camisetas/camiseta1.avif">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 11 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/chaqueta impermedable/chaqueta impermedable1.jpg" class="card-img-top" alt="Chaqueta Impermeable" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Chaqueta Impermeable</h5>
+
+<p class="text-success fs-4">$189.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-11" data-nombre="Chaqueta Impermeable"
+data-precio="189900" data-imagen="Imagenes/Mujer/chaqueta impermedable/chaqueta impermedable1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Producto 12 -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card producto">
+
+<img src="Imagenes/Mujer/banda de resistencia/banda1.jpg" class="card-img-top" alt="Banda de Resistencia x3" loading="lazy">
+
+<div class="card-body text-center">
+
+<h5>Banda de Resistencia x3</h5>
+
+<p class="text-success fs-4">$49.900</p>
+
+<button class="btn btn-success w-100 btn-agregar"
+data-id="mujer-12" data-nombre="Banda de Resistencia x3"
+data-precio="49900" data-imagen="Imagenes/Mujer/banda de resistencia/banda1.jpg">
+
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="bg-dark text-white mt-5">
+
+<div class="container py-4 text-center">
+
+<h4>Sport+Fitness</h4>
+
+<p>© 2026 Todos los derechos reservados.</p>
+
+<div>
+
+<a href="#" data-red="facebook" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+
+<a href="#" data-red="instagram" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+
+<a href="#" data-red="whatsapp" target="_blank" rel="noopener" class="text-white me-3"><i class="fab fa-whatsapp fa-2x"></i></a>
+
+<a href="#" data-red="twitter" target="_blank" rel="noopener" class="text-white"><i class="fab fa-x-twitter fa-2x"></i></a>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
+<script src="js/alertas.js"></script>
+<script src="js/api.js?v=2"></script>
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
